@@ -9,7 +9,7 @@ namespace Concessionaria.API.Controllers
     {
          [HttpGet("ObterCrompas/{id}")]
         public IActionResult ObterCompraPorId([FromBody] int id,
-                [FromServices] ICompraRepository __repositorioCompra)
+                [FromServices] ICompraRepository _repositorioCompra)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCrompa")]
-        public IActionResult ListarCrompa([FromServices] ICompraRepository __repositorioCompra)
+        public IActionResult ListarCrompa([FromServices] ICompraRepository _repositorioCompra)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace Concessionaria.API.Controllers
         }
         [HttpPost("IncluirCompra")]
         public IActionResult AdicionarCompra([FromBody] Compra compra,
-                [FromServices] ICompraRepository __repositorioCompra)
+                [FromServices] ICompraRepository _repositorioCompra)
         {
               _repositorioCompra.AdicionarCompra(compra);
             //   _repositorioCarro.AlterarCarro(IdCarro);
@@ -54,7 +54,7 @@ namespace Concessionaria.API.Controllers
         }
         [HttpPut("AlterarCompra")]
         public IActionResult AlterarCompra([FromBody] int id, Compra compra,
-                [FromServices] ICompraRepository __repositorioCompra)
+                [FromServices] ICompraRepository _repositorioCompra)
         {
             var verificarCompra = _repositorioCompra.ObterCompraPorId(id);
             if (verificarCompra == null)
@@ -69,7 +69,7 @@ namespace Concessionaria.API.Controllers
             return Ok();
         }
         [HttpDelete("DeletarCompra/{id}")]
-        public IActionResult RemoverCompra([FromBody]int id, [FromServices] ICompraRepository __repositorioCompra)
+        public IActionResult RemoverCompra([FromBody]int id, [FromServices] ICompraRepository _repositorioCompra)
         {
             var verificarCompra = _repositorioCompra.ObterCompraPorId(id);
 
