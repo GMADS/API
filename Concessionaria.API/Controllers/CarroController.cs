@@ -10,15 +10,8 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
     [Route("[controller]")]
     public class CarroController : ControllerBase
     {
-        private readonly ICarroRepository _repositorioCarro;
-        
-
-        public CarroController(ICarroRepository repositorioCarro)
-        {
-            _repositorioCarro = repositorioCarro;
-        }
         [HttpGet("ObterCarroPorId/{id}")]
-        public IActionResult ObterCarroPorId(int id)
+        public IActionResult ObterCarroPorId(int id, [FromServices]ICarroRepository _repositorioCarro)
         {
             try
             {
@@ -39,7 +32,7 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCarros")] 
-        public IEnumerable<Carro> ListarCarros()
+        public IEnumerable<Carro> ListarCarros([FromServices]ICarroRepository _repositorioCarro)
         {                            
             var produtos = _repositorioCarro.ListarCarro();           
 
@@ -47,13 +40,13 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             
         }
         [HttpPost("IncluirCarro")]
-        public IActionResult AdicionarCarro([FromBody] Carro carro)
+        public IActionResult AdicionarCarro([FromBody] Carro carro, [FromServices]ICarroRepository _repositorioCarro)
         {
             _repositorioCarro.AdicionarCarro(carro);
             return Ok();
         }
         [HttpPut("AlterarCarro")]
-        public IActionResult AlterarCarro(Carro carro)
+        public IActionResult AlterarCarro(Carro carro, [FromServices]ICarroRepository _repositorioCarro)
         {
             // var IdCarro = carro.IdCarro;
             // var verificarCarro = _repositorioCarro.ObterCarroPorId(IdCarro);
@@ -76,7 +69,7 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             return Ok();
         }
         [HttpDelete("DeletarCarro")]
-        public IActionResult RemoverCarro(int id)
+        public IActionResult RemoverCarro(int id, [FromServices]ICarroRepository _repositorioCarro)
         {
             _repositorioCarro.RemoverCarro(id);
 

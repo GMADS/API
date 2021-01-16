@@ -7,15 +7,9 @@ namespace Concessionaria.API.Controllers
 {
     public class CompraController : ControllerBase
     {
-        private readonly ICompraRepository _repositorioCompra;
-        private readonly ICarroRepository _repositorioCarro;
-        public CompraController(ICompraRepository repositorioCompra, ICarroRepository repositorioCarro)
-        {
-            _repositorioCompra = repositorioCompra;
-            _repositorioCarro = repositorioCarro;
-        }
          [HttpGet("ObterCrompas/{id}")]
-        public IActionResult ObterCompraPorId([FromBody] int id)
+        public IActionResult ObterCompraPorId([FromBody] int id,
+                [FromServices] ICompraRepository __repositorioCompra)
         {
             try
             {
@@ -35,7 +29,7 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCrompa")]
-        public IActionResult ListarCrompa()
+        public IActionResult ListarCrompa([FromServices] ICompraRepository __repositorioCompra)
         {
             try
             {
@@ -50,7 +44,8 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpPost("IncluirCompra")]
-        public IActionResult AdicionarCompra([FromBody] Compra compra/*, Carro IdCarro*/)
+        public IActionResult AdicionarCompra([FromBody] Compra compra,
+                [FromServices] ICompraRepository __repositorioCompra)
         {
               _repositorioCompra.AdicionarCompra(compra);
             //   _repositorioCarro.AlterarCarro(IdCarro);
@@ -58,7 +53,8 @@ namespace Concessionaria.API.Controllers
              return Ok();
         }
         [HttpPut("AlterarCompra")]
-        public IActionResult AlterarCompra([FromBody] int id, Compra compra)
+        public IActionResult AlterarCompra([FromBody] int id, Compra compra,
+                [FromServices] ICompraRepository __repositorioCompra)
         {
             var verificarCompra = _repositorioCompra.ObterCompraPorId(id);
             if (verificarCompra == null)
@@ -73,7 +69,7 @@ namespace Concessionaria.API.Controllers
             return Ok();
         }
         [HttpDelete("DeletarCompra/{id}")]
-        public IActionResult RemoverCompra([FromBody]int id)
+        public IActionResult RemoverCompra([FromBody]int id, [FromServices] ICompraRepository __repositorioCompra)
         {
             var verificarCompra = _repositorioCompra.ObterCompraPorId(id);
 

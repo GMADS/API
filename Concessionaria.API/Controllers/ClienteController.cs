@@ -7,13 +7,8 @@ namespace Concessionaria.API.Controllers
 {
     public class ClienteController : ControllerBase
     {
-        private readonly IClienteRepository _repositorioCliente;
-        public ClienteController(IClienteRepository repositorioCliente)
-        {
-            _repositorioCliente = repositorioCliente;
-        }
         [HttpGet("ObterCliente/{id}")]
-        public IActionResult ObterClientePorId(int id)
+        public IActionResult ObterClientePorId(int id, [FromServices] IClienteRepository _repositorioCliente)
         {
             try
             {
@@ -33,7 +28,7 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCliente")]
-        public IActionResult ListarCliente()
+        public IActionResult ListarCliente([FromServices] IClienteRepository _repositorioCliente)
         {
             try
             {
@@ -48,14 +43,16 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpPost("IncluirCliente")]
-        public IActionResult AdicionarCliente([FromBody] Cliente cliente)
+        public IActionResult AdicionarCliente([FromBody] Cliente cliente, 
+                [FromServices] IClienteRepository _repositorioCliente)
         {
               _repositorioCliente.AdicionarCliente(cliente);
 
             return Ok();
         }
         [HttpPut("AlterarCliente")]
-        public IActionResult AlterarCliente(int id, Cliente cliente)
+        public IActionResult AlterarCliente(int id, Cliente cliente,
+                [FromServices] IClienteRepository _repositorioCliente )
         {
             var verificarCliente = _repositorioCliente.ObterClientePorId(id);
             if (verificarCliente == null)
@@ -70,7 +67,7 @@ namespace Concessionaria.API.Controllers
             return Ok();
         }
         [HttpDelete("DeletarCliente/{id}")]
-        public IActionResult RemoverCliente(int id)
+        public IActionResult RemoverCliente(int id, [FromServices] IClienteRepository _repositorioCliente)
         {
             var verificarCliente = _repositorioCliente.ObterClientePorId(id);
 
