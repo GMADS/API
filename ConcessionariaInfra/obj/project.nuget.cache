@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2I6FhhLIxI9bjZnZg38suNkadAfqcr87tf8qB2O9BaxaNFRz7A6T728cIP2cqn0Rk3YkKj+vFEdRNyA9VtpLoA==",
+  "dgSpecHash": "YmMtPU/TduOBsOCpXqIRcPDKZJrSZQmJ4p4LZ85h0Soz79TmTOXs36ES+xmkS7SNQy41dYS7Cn7KNyn24ckg+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guilh\\OneDrive\\Área de Trabalho\\Treinando\\API\\ConcessionariaAPI\\ConcessionariaInfra\\ConcessionariaInfra.csproj",
+  "projectFilePath": "C:\\Users\\guilh\\OneDrive\\Documentos\\GitHub\\API\\ConcessionariaInfra\\ConcessionariaInfra.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

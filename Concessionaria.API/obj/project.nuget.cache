@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VCdtmccruTi96LNfgi1qqKcFvGGQE/4RVGojZmdhgFrQ/Pou3vKIceeWE16lef+dKhLQmNNldvAuqIYtX3EjzA==",
+  "dgSpecHash": "pE+h1DCdLvNVuQ236/qL+fLrl/wjIbb31wIWTDhpo+Zqj8Hj9UzIAbiLUYvyaCtixad5OEgNGhT4+G9+XUytzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\guilh\\OneDrive\\Área de Trabalho\\Treinando\\API\\ConcessionariaAPI\\Concessionaria.API\\ConcessionariaAPI.csproj",
+  "projectFilePath": "C:\\Users\\guilh\\OneDrive\\Documentos\\GitHub\\API\\Concessionaria.API\\ConcessionariaAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guilh\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\guilh\\.nuget\\packages\\google.protobuf\\3.6.1\\google.protobuf.3.6.1.nupkg.sha512",
