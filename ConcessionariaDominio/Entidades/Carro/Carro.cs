@@ -5,12 +5,6 @@ namespace ConcessionariaAPI.ConcessionariaDominio.Entidades
 {
     public class Carro
     {
-        public Carro()
-        {}   
-        public Carro(int id)
-        {
-            this.IdCarro = id;
-        }
 
         [Key] //DataAnnotation
         public int IdCarro { get; set; }

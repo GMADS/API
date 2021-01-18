@@ -16,12 +16,23 @@ namespace ConcessionariaServicos
 
         public void AdicionarCarro(Carro carro)
         {
-            _context.Add(carro);
+            try
+            {
+                _context.Add(carro);
+                _context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {
+                
+                throw ex;
+            }
+            
         }
 
         public void AlterarCarro(Carro carro)
         {
             _context.Update(carro);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Carro> ListarCarro()
@@ -42,6 +53,7 @@ namespace ConcessionariaServicos
             var result = _context.Carro.FirstOrDefault(x => x.IdCarro == id);
 
             _context.Remove(result);
+            _context.SaveChanges();
 
         }
     }

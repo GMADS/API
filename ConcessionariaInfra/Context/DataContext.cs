@@ -15,7 +15,6 @@ namespace ConcessionariaAPI.ConcessionariaInfra.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         { 
             modelBuilder.Entity<Carro>().ToTable("Carro");
-            modelBuilder.Entity<Carro>().Property(x => x.IdCarro);
             modelBuilder.Entity<Carro>().Property(x => x.Ano);
             modelBuilder.Entity<Carro>().Property(x => x.Marca);
             modelBuilder.Entity<Carro>().Property(x => x.Modelo);
@@ -27,7 +26,6 @@ namespace ConcessionariaAPI.ConcessionariaInfra.Context
             modelBuilder.Entity<Carro>().Property(x => x.Vendido);
 
             modelBuilder.Entity<Cliente>().ToTable("Cliente");
-            modelBuilder.Entity<Cliente>().Property(x => x.IdCliente);
             modelBuilder.Entity<Cliente>().Property(x => x.Nome);
             modelBuilder.Entity<Cliente>().Property(x => x.Logradouro);
             modelBuilder.Entity<Cliente>().Property(x => x.Cidade);

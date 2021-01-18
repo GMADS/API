@@ -24,3 +24,4 @@ C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\ne
 C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.csproj.CoreCompileInputs.cache
 C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.dll
 C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.pdb
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.csprojAssemblyReference.cache
