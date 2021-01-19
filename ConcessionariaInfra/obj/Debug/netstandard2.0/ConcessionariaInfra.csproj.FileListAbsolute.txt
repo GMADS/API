@@ -22,15 +22,3 @@ C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\Conces
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.csproj.CopyComplete
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.dll
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\bin\Debug\netstandard2.0\ConcessionariaInfra.deps.json
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\bin\Debug\netstandard2.0\ConcessionariaInfra.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\bin\Debug\netstandard2.0\ConcessionariaInfra.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\bin\Debug\netstandard2.0\ConcessionariaDominio.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\bin\Debug\netstandard2.0\ConcessionariaDominio.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.csprojAssemblyReference.cache
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.AssemblyInfoInputs.cache
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.AssemblyInfo.cs
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.csproj.CoreCompileInputs.cache
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.csproj.CopyComplete
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaInfra\obj\Debug\netstandard2.0\ConcessionariaInfra.pdb

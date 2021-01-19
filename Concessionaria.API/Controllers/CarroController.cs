@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
-using ConcessionariaAPI.ConcessionariaDominio.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConcessionariaAPI.Concessionaria.API.Controllers
@@ -11,7 +10,7 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
     public class CarroController : ControllerBase
     {
         [HttpGet("ObterCarroPorId/{id}")]
-        public IActionResult ObterCarroPorId(int id, [FromServices]ICarroRepository _repositorioCarro)
+        public IActionResult ObterCarroPorId(int id, [FromServices]IConcessionariaRepositorio _repositorioCarro)
         {
             try
             {

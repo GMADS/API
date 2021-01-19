@@ -26,17 +26,3 @@ C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\Conces
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.csproj.CopyComplete
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.dll
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaServicos.deps.json
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaServicos.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaServicos.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaDominio.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaInfra.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaDominio.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\bin\Debug\netstandard2.0\ConcessionariaInfra.pdb
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.csprojAssemblyReference.cache
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.AssemblyInfoInputs.cache
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.AssemblyInfo.cs
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.csproj.CoreCompileInputs.cache
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.csproj.CopyComplete
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.dll
-C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaServicos\obj\Debug\netstandard2.0\ConcessionariaServicos.pdb

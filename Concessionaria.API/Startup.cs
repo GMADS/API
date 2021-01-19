@@ -10,8 +10,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using ConcessionariaAPI.ConcessionariaInfra.Context;
 using ConcessionariaAPI.ConcessionariaDominio.Repositorio.Interfaces;
-using ConcessionariaServicos.Repositorios;
-using ConcessionariaServicos;
+using ConcessionariaInfra.Repositorios;
 
 namespace ConcessionariaAPI.Concessionaria.API
 {
