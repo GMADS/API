@@ -23,8 +23,7 @@ namespace ConcessionariaAPI.ConcessionariaInfra.Context
             modelBuilder.Entity<Carro>().Property(x => x.Cambio);
             modelBuilder.Entity<Carro>().Property(x => x.Items);
             modelBuilder.Entity<Carro>().Property(x => x.Carroceria);
-            modelBuilder.Entity<Carro>().Property(x => x.Vendido);
-
+            
             modelBuilder.Entity<Cliente>().ToTable("Cliente");
             modelBuilder.Entity<Cliente>().Property(x => x.Nome);
             modelBuilder.Entity<Cliente>().Property(x => x.Logradouro);

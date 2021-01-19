@@ -6,8 +6,8 @@ namespace ConcessionariaAPI.ConcessionariaDominio.Entidades
     public class Carro
     {
 
-        [Key] //DataAnnotation
-        public int IdCarro { get; set; }
+        [Key]//DataAnnotation
+        public int? IdCarro { get; set; }
         public int Ano { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
@@ -16,6 +16,5 @@ namespace ConcessionariaAPI.ConcessionariaDominio.Entidades
         public string Cambio { get; set; }
         public string Items { get; set; }
         public string Carroceria { get; set; }
-        public int? Vendido { get; set; }         
     }
 }
