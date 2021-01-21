@@ -7,7 +7,7 @@ namespace ConcessionariaAPI.ConcessionariaDominio.Entidades
     {
 
         [Key]//DataAnnotation
-        public int? IdCarro { get; set; }
+        public int IdCarro { get; set; }
         public int Ano { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
