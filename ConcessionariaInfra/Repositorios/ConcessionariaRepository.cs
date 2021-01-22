@@ -16,11 +16,11 @@ namespace ConcessionariaInfra.Repositorios
             _context = context; 
         }
 
-        async Task<bool> IConcessionariaRepositrio.AdicionarCarro(Carro carro)
+        bool AdicionarCarro(Carro carro)
         {
             try
             {
-                await _context.Add(carro);
+                _context.Add(carro);
                 _context.SaveChanges();
 
                 return true;
@@ -33,88 +33,101 @@ namespace ConcessionariaInfra.Repositorios
             
         }
 
-        public void AlterarCarro(int id)
+        bool AlterarCarro(int id)
         {
             _context.Update(id);
             _context.SaveChanges();
+
+            return true;
         }
 
-        public IEnumerable<Carro> ListarCarro()
+        IEnumerable<Carro> ListarCarro()
         {
-            return  _context.Carro.ToList();
+            return _context.Carro.ToList();
         }
 
         public Carro ObterCarroPorId(int id)
-        {
-            var result =  _context.Carro.FirstOrDefault(x => x.IdCarro == id);
 
-            return result;
+        {
+            return _context.Carro.FirstOrDefault(x => x.IdCarro == id);            
         }
 
-        public void RemoverCarro(int id)
+        bool RemoverCarro(int id)
         {
-
             var result = _context.Carro.FirstOrDefault(x => x.IdCarro == id);
 
             _context.Remove(result);
             _context.SaveChanges();
 
+            return true;
         }
 
-        public void AdicionarCliente(Cliente cliente)
+        bool AdicionarCliente(Cliente cliente)
         {
             _context.Add(cliente);
             _context.SaveChanges();
+
+            return true;
         }
 
-        public void AlterarCliente(int id)
+        bool AlterarCliente(int id)
         {
             _context.Entry(id).State = EntityState.Modified;
             _context.SaveChanges();
+
+            return true;
         }
 
-        public IEnumerable<Cliente> ListarCliente()
+        IEnumerable<Cliente> ListarCliente()
         {
             return _context.Cliente.ToList();
         }
 
-        public Cliente ObterClientePorId(int id)
+        Cliente ObterClientePorId(int id)
         {
             return _context.Cliente.FirstOrDefault(x => x.IdCliente == id);
         }
 
-        public void RemoverCliente(int id)
+        bool IConcessionariaRepositrio.RemoverCliente(int id)
         {
             _context.Remove(id);
             _context.SaveChanges();
+
+            return true;
         }
 
-        public void AdicionarCompra(Compra compra)
+        bool IConcessionariaRepositrio.AdicionarCompra(Compra compra)
         { 
             _context.Add(compra);            
             _context.SaveChanges();
+
+            return true;
         }
 
-        public void AlterarCompra(int id)
+        bool AlterarCompra(int id)
         {
             _context.Entry(id).State = EntityState.Modified;
             _context.SaveChanges();
+
+            return true;
         }
 
-        public IEnumerable<Compra> ListarCompra()
+        IEnumerable<Compra> ListarCompra()
         {
             return _context.Compra.ToList();
         }
 
-        public Compra ObterCompraPorId(int id)
+        Compra ObterCompraPorId(int id)
         {
             return _context.Compra.FirstOrDefault(x => x.IdCarro == id);
         }
 
-        public void RemoverCompra(int id)
+        bool IConcessionariaRepositrio.RemoverCompra(int id)
         {
             _context.Remove(id);
             _context.SaveChanges();
+
+            return true;
         }
 
         Task<bool> IConcessionariaRepositrio.AdicionarCarro(Carro carro)
@@ -127,7 +140,7 @@ namespace ConcessionariaInfra.Repositorios
             throw new System.NotImplementedException();
         }
 
-        Task<bool> IConcessionariaRepositrio.RemoverCarro(int id)
+        bool IConcessionariaRepositrio.RemoverCarro(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -137,22 +150,17 @@ namespace ConcessionariaInfra.Repositorios
             throw new System.NotImplementedException();
         }
 
-        Task<IEnumerable<Carro>> IConcessionariaRepositrio.ListarCarro()
+        IEnumerable<Carro> IConcessionariaRepositrio.ListarCarro()
         {
             throw new System.NotImplementedException();
         }
 
-        Task<bool> IConcessionariaRepositrio.AdicionarCliente(Cliente cliente)
+        bool IConcessionariaRepositrio.AdicionarCliente(Cliente cliente)
         {
             throw new System.NotImplementedException();
         }
 
-        Task<bool> IConcessionariaRepositrio.AlterarCliente(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<bool> IConcessionariaRepositrio.RemoverCliente(int id)
+        bool IConcessionariaRepositrio.AlterarCliente(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -167,27 +175,17 @@ namespace ConcessionariaInfra.Repositorios
             throw new System.NotImplementedException();
         }
 
-        Task<bool> IConcessionariaRepositrio.AdicionarCompra(Compra compra)
+        bool IConcessionariaRepositrio.AlterarCompra(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        Task<bool> IConcessionariaRepositrio.AlterarCompra(int id)
+        Compra IConcessionariaRepositrio.ObterCompraPorId(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        Task<bool> IConcessionariaRepositrio.RemoverCompra(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<Compra> IConcessionariaRepositrio.ObterCompraPorId(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        Task<IEnumerable<Compra>> IConcessionariaRepositrio.ListarCompra()
+        IEnumerable<Compra> IConcessionariaRepositrio.ListarCompra()
         {
             throw new System.NotImplementedException();
         }

@@ -8,18 +8,18 @@ namespace ConcessionariaDominio.Repositorio.Interfaces
     {
         Task<bool> AdicionarCarro (Carro carro);
         Task<bool> AlterarCarro (int id);
-        Task<bool> RemoverCarro (int id);
+        bool RemoverCarro (int id);
         Task<Carro> ObterCarroPorId(int id);
-        Task<IEnumerable<Carro>> ListarCarro();
-        Task<bool> AdicionarCliente (Cliente cliente);
-        Task<bool> AlterarCliente (int id);
-        Task<bool> RemoverCliente (int id);
+        IEnumerable<Carro> ListarCarro();
+        bool AdicionarCliente (Cliente cliente);
+        bool AlterarCliente (int id);
+        bool RemoverCliente (int id);
         Task<Cliente> ObterClientePorId(int id);
         Task<IEnumerable<Cliente>> ListarCliente();
-        Task<bool> AdicionarCompra (Compra compra);
-        Task<bool> AlterarCompra (int id);
-        Task<bool> RemoverCompra (int id);
-        Task<Compra> ObterCompraPorId(int id);
-        Task<IEnumerable<Compra>> ListarCompra();
+        bool AdicionarCompra (Compra compra);
+        bool AlterarCompra (int id);
+        bool RemoverCompra (int id);
+        Compra ObterCompraPorId(int id);
+        IEnumerable<Compra> ListarCompra();
     }
 }
