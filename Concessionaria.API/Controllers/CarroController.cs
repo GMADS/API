@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
+using ConcessionariaDominio.Servicos.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ConcessionariaAPI.Concessionaria.API.Controllers
@@ -10,15 +11,15 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
     public class CarroController : ControllerBase
     {
         [HttpGet("ObterCarroPorId/{id}")]
-        public IActionResult ObterCarroPorId(int id, [FromServices]IConcessionariaRepositorio _repositorioCarro)
+        public IActionResult ObterCarroPorId(int id, [FromServices]IConcessionariaServicos _servicoConcessionaria)
         {
             try
             {
-                var verificaProduto = _repositorioCarro.ObterCarroPorId(id);
+                var verificaProduto = _servicoConcessionaria.ObterCarroPorId(id);
 
                 if (verificaProduto == null)
                 {
-                    return NotFound("Carro não encontrado");
+                    return NoContent();
                 }
 
 
@@ -31,21 +32,27 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCarros")] 
-        public IEnumerable<Carro> ListarCarros([FromServices]ICarroRepository _repositorioCarro)
+        public IEnumerable<Carro> ListarCarros([FromServices]IConcessionariaServicos _servicoConcessionaria)
         {                            
-            var produtos = _repositorioCarro.ListarCarro();           
+            var produtos = _servicoConcessionaria.ListarCarro();  
 
-            return (produtos);
+            if(!produtos.Result.Sucesso)
+            {
+                return (IEnumerable<Carro>)NoContent();
+            }         
+
+            return ((IEnumerable<Carro>)produtos);
             
         }
         [HttpPost("IncluirCarro")]
-        public IActionResult AdicionarCarro([FromBody] Carro carro, [FromServices]ICarroRepository _repositorioCarro)
+        public IActionResult AdicionarCarro([FromBody] Carro carro,
+                 [FromServices]IConcessionariaServicos _servicoConcessionaria)
         {
-            _repositorioCarro.AdicionarCarro(carro);
+            _servicoConcessionaria.AdicionarCarro(carro);
             return Ok();
         }
         [HttpPut("AlterarCarro")]
-        public IActionResult AlterarCarro(Carro carro, [FromServices]ICarroRepository _repositorioCarro)
+        public IActionResult AlterarCarro(Carro carro, [FromServices]IConcessionariaServicos _servicoConcessionaria)
         {
             // var IdCarro = carro.IdCarro;
             // var verificarCarro = _repositorioCarro.ObterCarroPorId(IdCarro);
@@ -63,14 +70,14 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             // verificarCarro.Itens = carro.Itens;
             // verificarCarro.Carroceria = carro.Carroceria;
 
-            _repositorioCarro.AlterarCarro(carro);
+            _servicoConcessionaria.AlterarCarro(carro);
 
             return Ok();
         }
-        [HttpDelete("DeletarCarro")]
-        public IActionResult RemoverCarro(int id, [FromServices]ICarroRepository _repositorioCarro)
+        [HttpDelete("DeletarCarro/{id}")]
+        public IActionResult RemoverCarro(int id, [FromServices]IConcessionariaServicos _servicoConcessionaria)
         {
-            _repositorioCarro.RemoverCarro(id);
+            _servicoConcessionaria.RemoverCarro(id);
 
             return Ok(); 
         }

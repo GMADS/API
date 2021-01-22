@@ -1,6 +1,6 @@
 using System;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
-using ConcessionariaAPI.ConcessionariaDominio.Repositorio.Interfaces;
+using ConcessionariaDominio.Servicos.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Concessionaria.API.Controllers
@@ -9,16 +9,15 @@ namespace Concessionaria.API.Controllers
     {
          [HttpGet("ObterCrompas/{id}")]
         public IActionResult ObterCompraPorId([FromBody] int id,
-                [FromServices] ICompraRepository _repositorioCompra)
+                [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
             try
-            {
-                
-                var verificaCrompa = _repositorioCompra.ObterCompraPorId(id);
+            {                
+                var verificaCrompa = _servicoConcessionaria.ObterCompraPorId(id);
 
                 if (verificaCrompa == null)
                 {
-                    return NotFound("Compra não encontrada");
+                    return NoContent();
                 }
 
                 return Ok(verificaCrompa);
@@ -29,11 +28,14 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCrompa")]
-        public IActionResult ListarCrompa([FromServices] ICompraRepository _repositorioCompra)
+        public IActionResult ListarCrompa([FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
             try
             {
-                var compra = _repositorioCompra.ListarCompra();
+                var compra = _servicoConcessionaria.ListarCompra();
+
+                if (!compra.Result.Sucesso)
+                    return NotFound();
 
                 return Ok(compra);
             }
@@ -45,39 +47,37 @@ namespace Concessionaria.API.Controllers
         }
         [HttpPost("IncluirCompra")]
         public IActionResult AdicionarCompra([FromBody] Compra compra,
-                [FromServices] ICompraRepository _repositorioCompra)
+                [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-              _repositorioCompra.AdicionarCompra(compra);
-            //   _repositorioCarro.AlterarCarro(IdCarro);
+              _servicoConcessionaria.AdicionarCompra(compra);
 
              return Ok();
         }
         [HttpPut("AlterarCompra")]
         public IActionResult AlterarCompra([FromBody] int id, Compra compra,
-                [FromServices] ICompraRepository _repositorioCompra)
+                [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-            var verificarCompra = _repositorioCompra.ObterCompraPorId(id);
+            var verificarCompra = _servicoConcessionaria.ObterCompraPorId(id);
+
             if (verificarCompra == null)
             {
                 return BadRequest();
             }
 
-            // verificarCompra.IdCompra = compra.IdCompra;
-
-            _repositorioCompra.AlterarCompra(verificarCompra);
+            _servicoConcessionaria.AlterarCompra(compra);
 
             return Ok();
         }
         [HttpDelete("DeletarCompra/{id}")]
-        public IActionResult RemoverCompra([FromBody]int id, [FromServices] ICompraRepository _repositorioCompra)
+        public IActionResult RemoverCompra([FromBody]int id, [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-            var verificarCompra = _repositorioCompra.ObterCompraPorId(id);
+            var verificarCompra = _servicoConcessionaria.ObterCompraPorId(id);
 
             if(verificarCompra == null)
             {
                 return NotFound();
             }
-            _repositorioCompra.RemoverCompra(verificarCompra);
+            _servicoConcessionaria.RemoverCompra(id);
 
             return Ok(); 
         }

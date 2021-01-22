@@ -1,6 +1,6 @@
 using System;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
-using ConcessionariaAPI.ConcessionariaDominio.Repositorio.Interfaces;
+using ConcessionariaDominio.Servicos.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Concessionaria.API.Controllers
@@ -8,15 +8,15 @@ namespace Concessionaria.API.Controllers
     public class ClienteController : ControllerBase
     {
         [HttpGet("ObterCliente/{id}")]
-        public IActionResult ObterClientePorId(int id, [FromServices] IClienteRepository _repositorioCliente)
+        public IActionResult ObterClientePorId(int id, [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
             try
             {
-                var verificaCliente = _repositorioCliente.ObterClientePorId(id);
+                var verificaCliente = _servicoConcessionaria.ObterClientePorId(id);
 
                 if (verificaCliente == null)
                 {
-                    return NotFound("Cliente não encontrado");
+                    return NoContent();
                 }
 
                 return Ok(verificaCliente);
@@ -28,11 +28,16 @@ namespace Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCliente")]
-        public IActionResult ListarCliente([FromServices] IClienteRepository _repositorioCliente)
+        public IActionResult ListarCliente([FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
             try
             {
-                var cliente = _repositorioCliente.ListarCliente();
+                var cliente = _servicoConcessionaria.ListarCliente();
+
+                if(!cliente.Result.Sucesso)
+                {
+                    return NoContent();
+                }
 
                 return Ok(cliente);
             }
@@ -44,38 +49,36 @@ namespace Concessionaria.API.Controllers
         }
         [HttpPost("IncluirCliente")]
         public IActionResult AdicionarCliente([FromBody] Cliente cliente, 
-                [FromServices] IClienteRepository _repositorioCliente)
+                [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-              _repositorioCliente.AdicionarCliente(cliente);
+              _servicoConcessionaria.AdicionarCliente(cliente);
 
             return Ok();
         }
         [HttpPut("AlterarCliente")]
         public IActionResult AlterarCliente(int id, Cliente cliente,
-                [FromServices] IClienteRepository _repositorioCliente )
+                [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-            var verificarCliente = _repositorioCliente.ObterClientePorId(id);
+            var verificarCliente = _servicoConcessionaria.ObterClientePorId(id);
             if (verificarCliente == null)
             {
                 return BadRequest();
             }
 
-            verificarCliente.IdCliente = cliente.IdCliente;
+            _servicoConcessionaria.AlterarCliente(cliente);
 
-            _repositorioCliente.AlterarCliente(verificarCliente);
-
-            return Ok();
+            return Ok(verificarCliente);
         }
         [HttpDelete("DeletarCliente/{id}")]
-        public IActionResult RemoverCliente(int id, [FromServices] IClienteRepository _repositorioCliente)
+        public IActionResult RemoverCliente(int id, [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-            var verificarCliente = _repositorioCliente.ObterClientePorId(id);
+            var verificarCliente = _servicoConcessionaria.ObterClientePorId(id);
 
             if(verificarCliente == null)
             {
                 return NotFound();
             }
-            _repositorioCliente.RemoverCliente(verificarCliente);
+            _servicoConcessionaria.RemoverCliente(id);
 
             return Ok(); 
         }

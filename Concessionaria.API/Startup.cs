@@ -9,8 +9,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using ConcessionariaAPI.ConcessionariaInfra.Context;
-using ConcessionariaAPI.ConcessionariaDominio.Repositorio.Interfaces;
 using ConcessionariaInfra.Repositorios;
+using ConcessionariaDominio.Repositorio.Interfaces;
+using ConcessionariaDominio.Servicos.Interface;
+using ConcessionariaServicos;
 
 namespace ConcessionariaAPI.Concessionaria.API
 {
@@ -35,9 +37,8 @@ namespace ConcessionariaAPI.Concessionaria.API
             AddSwagger(services);
             
             //Fazendo injeção de dependência.
-            services.AddTransient<ICarroRepository, CarroRepository>();
-            services.AddTransient<IClienteRepository, ClienteRepository>();
-            services.AddTransient<ICompraRepository, CompraRepository>();
+            services.AddTransient<IConcessionariaRepositrio, ConcessionariaRepository>();
+            services.AddTransient<IConcessionariaServicos, ConcessionariaServico>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
