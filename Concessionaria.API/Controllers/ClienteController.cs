@@ -1,5 +1,6 @@
 using System;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
+using ConcessionariaDominio.Repositorio.Interfaces;
 using ConcessionariaDominio.Servicos.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,28 +57,15 @@ namespace Concessionaria.API.Controllers
             return Ok();
         }
         [HttpPut("AlterarCliente")]
-        public IActionResult AlterarCliente(int id, Cliente cliente,
-                [FromServices] IConcessionariaServicos _servicoConcessionaria)
+        public IActionResult AlterarCliente([FromBody]Cliente cliente, [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-            var verificarCliente = _servicoConcessionaria.ObterClientePorId(id);
-            if (verificarCliente == null)
-            {
-                return BadRequest();
-            }
-
             _servicoConcessionaria.AlterarCliente(cliente);
 
-            return Ok(verificarCliente);
+            return Ok();
         }
         [HttpDelete("DeletarCliente/{id}")]
         public IActionResult RemoverCliente(int id, [FromServices] IConcessionariaServicos _servicoConcessionaria)
         {
-            var verificarCliente = _servicoConcessionaria.ObterClientePorId(id);
-
-            if(verificarCliente == null)
-            {
-                return NotFound();
-            }
             _servicoConcessionaria.RemoverCliente(id);
 
             return Ok(); 

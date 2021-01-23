@@ -31,41 +31,14 @@ namespace ConcessionariaServicos
             return new RetornoGenerico(
                     true, "Compra inserida com sucesso", _concessionariaRepositorio.AdicionarCompra(compra));
         }
-
-        public async Task<RetornoGenerico> AlterarCarro(Carro carro)
-        {
-            var verificarCarro = _concessionariaRepositorio.ObterCarroPorId(carro.IdCarro);
-
-            if(verificarCarro == null || carro.IdCarro == 0)
-            {
-                return new RetornoGenerico(false, "Erro: id igual a 0 ou carro não existe", null);
-            }
-
-            return new RetornoGenerico(
-                    true, "Carro alterado com sucesso", _concessionariaRepositorio.AlterarCarro(carro));
-        }
-
         public async Task<RetornoGenerico> AlterarCliente(Cliente cliente)
         {
-            var verificarCliente = _concessionariaRepositorio.ObterClientePorId(cliente.IdCliente);
-
-            if(verificarCliente == null || cliente.IdCliente == 0)
-            {
-                return new RetornoGenerico(false, "Erro: id igual a 0 ou cliente não existe", null);
-            }
-
             return new RetornoGenerico(
                     true, "Cliente alterado com sucesso", _concessionariaRepositorio.AlterarCliente(cliente));
         }
 
         public async Task<RetornoGenerico> AlterarCompra(Compra compra)
         {
-            var verificarCompra = _concessionariaRepositorio.ObterCompraPorId(compra.IdCompra);
-
-            if(verificarCompra == null || compra.IdCompra == 0)
-            {
-                return new RetornoGenerico(false, "Erro: id igual a 0 ou compra não existe", null);
-            }
             return new RetornoGenerico(
                     true, "Compra alterada com sucesso", _concessionariaRepositorio.AlterarCompra(compra));
         }
@@ -122,45 +95,26 @@ namespace ConcessionariaServicos
 
         public async Task<RetornoGenerico> ObterCompraPorId(int id)
         {
+            var retorno = _concessionariaRepositorio.ObterCompraPorId(id);
+
             return new RetornoGenerico(
-                    true, "Compra obtido com sucesso", _concessionariaRepositorio.ObterCompraPorId(id));
+                    true, "Compra obtido com sucesso", retorno);
         }
 
         async Task<RetornoGenerico> IConcessionariaServicos.RemoverCarro(int id)
         {
-            var verificarCarro = await _concessionariaRepositorio.ObterCarroPorId(id);
-
-            if(verificarCarro == null)
-            {
-                return new RetornoGenerico(false, "Carro não existe", null);
-            }
-
-            return new RetornoGenerico(true, "Carro excluido com sucesso", await _concessionariaRepositorio.ObterCarroPorId(id));
+            return new RetornoGenerico(true, "Carro excluido com sucesso", _concessionariaRepositorio.RemoverCarro(id));
         }
         public async Task<RetornoGenerico> RemoverCliente(int id)
         {
-            var verificarCliente = await _concessionariaRepositorio.ObterClientePorId(id);
-
-            if(verificarCliente == null || id == 0)
-            {
-                return new RetornoGenerico(false, "Erro: id igual a 0 ou cliente não existe", null);
-            }
-
             return new RetornoGenerico(
-                true, "Cliente excluido com sucesso", await _concessionariaRepositorio.ObterClientePorId(id));
+                true, "Cliente excluido com sucesso", _concessionariaRepositorio.RemoverCliente(id));
         }
 
         public async Task<RetornoGenerico> RemoverCompra(int id)
         {
-            var verificarCompra = await _concessionariaRepositorio.ObterClientePorId(id);
-
-            if(verificarCompra == null || id == 0)
-            {
-                return new RetornoGenerico(false, "Erro: id igual a 0 ou compra não existe", null);
-            }
-
             return new RetornoGenerico(
-                true, "Compra excluido com sucesso", await _concessionariaRepositorio.ObterClientePorId(id));
+                true, "Compra excluido com sucesso", _concessionariaRepositorio.RemoverCompra(id));
         }
     }
 }

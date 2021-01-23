@@ -50,16 +50,30 @@ namespace ConcessionariaInfra.Repositorios
 
         public bool AlterarCarro(Carro carro)
         {
-            _context.Update(carro);
-            _context.SaveChanges();
-
+            try
+            {
+                _context.Update(carro);
+                _context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {                
+                throw ex;
+            }
             return true;
         }
 
         public bool AlterarCliente(Cliente cliente)
         {
-            _context.Entry(cliente).State = EntityState.Modified;
-            _context.SaveChanges();
+            try
+            {
+                _context.Entry(cliente).State = EntityState.Modified;
+                _context.SaveChanges();
+            }
+            catch (System.Exception ex)
+            {                
+                throw ex;
+            }
+            
 
             return true;
         }
@@ -99,31 +113,68 @@ namespace ConcessionariaInfra.Repositorios
 
         public Compra ObterCompraPorId(int id)
         {
-            return _context.Compra.FirstOrDefault(x => x.IdCarro == id);
+            try
+            {
+                var resultado = _context.Compra.FirstOrDefault(x => x.IdCompra == id);
+
+                return resultado;
+            }
+            catch (System.Exception ex)
+            {                
+                throw ex;
+            }            
         }
 
         public bool RemoverCarro(int id)
         {
-            _context.Remove(id);
-            _context.SaveChanges();
+            try
+            {
+                var excluir = new Carro();
+                excluir.IdCarro = id;
+                _context.Remove(excluir);
+                _context.SaveChanges();
 
-            return true;
+                return true;
+            }
+            catch (System.Exception ex)
+            {                
+                throw ex;
+            }
         }
 
         public bool RemoverCliente(int id)
         {
-            _context.Remove(id);
-            _context.SaveChanges();
+            try
+            {
+                var excluir = new Cliente();
+                excluir.IdCliente = id;
+                _context.Remove(excluir);
+                _context.SaveChanges();
 
-            return true;
+                return true;
+            }
+            catch (System.Exception ex)
+            {                
+                throw ex;
+            }            
         }
 
         public bool RemoverCompra(int id)
         {
-            _context.Remove(id);
-            _context.SaveChanges();
+            try
+            {
+                var excluir = new Compra();
+                excluir.IdCompra = id;
+                _context.Remove(excluir);
+                _context.SaveChanges();
 
-            return true;
+                return true;
+            }
+            catch (System.Exception ex)
+            {                
+                throw ex;
+            }
+            
         }
     }
 }

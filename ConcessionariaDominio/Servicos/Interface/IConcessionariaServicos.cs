@@ -7,7 +7,6 @@ namespace ConcessionariaDominio.Servicos.Interface
     public interface IConcessionariaServicos
     {
         Task<RetornoGenerico> AdicionarCarro (Carro carro);
-        Task<RetornoGenerico> AlterarCarro (Carro carro);
         Task<RetornoGenerico> RemoverCarro (int id);
         Task<RetornoGenerico> ObterCarroPorId(int id);
         Task<RetornoGenerico> ListarCarro();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
+using ConcessionariaDominio.Repositorio.Interfaces;
 using ConcessionariaDominio.Servicos.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,8 +23,7 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
                     return NoContent();
                 }
 
-
-                return Ok(verificaProduto);
+                return Ok(verificaProduto.Result);
             }
 
             catch (Exception e)
@@ -32,17 +32,16 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             }
         }
         [HttpGet("ListarCarros")] 
-        public IEnumerable<Carro> ListarCarros([FromServices]IConcessionariaServicos _servicoConcessionaria)
+        public IActionResult ListarCarros([FromServices]IConcessionariaServicos _servicoConcessionaria)
         {                            
             var produtos = _servicoConcessionaria.ListarCarro();  
 
             if(!produtos.Result.Sucesso)
             {
-                return (IEnumerable<Carro>)NoContent();
+                return NoContent();
             }         
 
-            return ((IEnumerable<Carro>)produtos);
-            
+            return Ok(produtos);            
         }
         [HttpPost("IncluirCarro")]
         public IActionResult AdicionarCarro([FromBody] Carro carro,
@@ -52,26 +51,10 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             return Ok();
         }
         [HttpPut("AlterarCarro")]
-        public IActionResult AlterarCarro(Carro carro, [FromServices]IConcessionariaServicos _servicoConcessionaria)
+        public IActionResult AlterarCarro(Carro carro, [FromServices]IConcessionariaRepositrio _repositorioConcessionaria)
         {
-            // var IdCarro = carro.IdCarro;
-            // var verificarCarro = _repositorioCarro.ObterCarroPorId(IdCarro);
-            // if (verificarCarro == null)
-            // {
-            //     return BadRequest();
-            // }
-
-            // verificarCarro.Ano = carro.Ano;
-            // verificarCarro.Marca = carro.Marca;
-            // verificarCarro.Modelo = carro.Modelo;
-            // verificarCarro.Kilometragem = carro.Kilometragem;
-            // verificarCarro.Cor = carro.Cor;
-            // verificarCarro.Cambio = carro.Cambio;
-            // verificarCarro.Itens = carro.Itens;
-            // verificarCarro.Carroceria = carro.Carroceria;
-
-            _servicoConcessionaria.AlterarCarro(carro);
-
+            var retorno = _repositorioConcessionaria.AlterarCarro(carro);
+            
             return Ok();
         }
         [HttpDelete("DeletarCarro/{id}")]
