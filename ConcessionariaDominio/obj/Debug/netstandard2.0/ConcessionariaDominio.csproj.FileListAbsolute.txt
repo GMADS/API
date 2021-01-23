@@ -16,3 +16,12 @@ C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\Conces
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.csproj.CoreCompileInputs.cache
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.dll
 C:\Users\guilh\OneDrive\Área de Trabalho\Treinando\API\ConcessionariaAPI\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.pdb
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\bin\Debug\netstandard2.0\ConcessionariaDominio.deps.json
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\bin\Debug\netstandard2.0\ConcessionariaDominio.dll
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\bin\Debug\netstandard2.0\ConcessionariaDominio.pdb
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.csprojAssemblyReference.cache
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.AssemblyInfoInputs.cache
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.AssemblyInfo.cs
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.csproj.CoreCompileInputs.cache
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.dll
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaDominio\obj\Debug\netstandard2.0\ConcessionariaDominio.pdb

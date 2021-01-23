@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
 using ConcessionariaDominio.Entidades;
@@ -71,20 +72,39 @@ namespace ConcessionariaServicos
 
         public async Task<RetornoGenerico> ListarCarro()
         {
-            return new RetornoGenerico(
-                    true, "Carros obtidos com sucesso",  _concessionariaRepositorio.ListarCarro());
+            var retorno = _concessionariaRepositorio.ListarCarro();
+
+            if(!retorno.Any())
+            {
+                return new RetornoGenerico(false, "Não existe carros cadastrados na base de dados", null);
+            }
+
+            return new RetornoGenerico(true, "Carros obtidos com sucesso", retorno);
+        
         }
 
         public async Task<RetornoGenerico> ListarCliente()
         {
-            return new RetornoGenerico(
-                    true, "Clientes obtidos com sucesso", _concessionariaRepositorio.ListarCliente());
+            var retorno = _concessionariaRepositorio.ListarCliente();
+
+            if (!retorno.Any())
+            {
+                return new RetornoGenerico(false, "Não existe clientes cadastrados na base de dados", null);
+            }
+            
+            return new RetornoGenerico(true, "Clientes obtidos com sucesso", retorno);             
         }
 
         public async Task<RetornoGenerico> ListarCompra()
         {
-            return new RetornoGenerico(
-                    true, "Compras obtidas com sucesso", _concessionariaRepositorio.ListarCompra());
+            var retorno = _concessionariaRepositorio.ListarCompra();
+
+            if(!retorno.Any())
+            {
+                return new RetornoGenerico(false, "Não existe compras cadastrados na base de dados", null);
+            }
+
+            return new RetornoGenerico(true, "Compras obtidas com sucesso", retorno);
         }
 
         public async Task<RetornoGenerico> ObterCarroPorId(int id)

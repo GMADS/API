@@ -35,7 +35,7 @@ namespace Concessionaria.API.Controllers
                 var compra = _servicoConcessionaria.ListarCompra();
 
                 if (!compra.Result.Sucesso)
-                    return NotFound();
+                    return NoContent();
 
                 return Ok(compra);
             }
