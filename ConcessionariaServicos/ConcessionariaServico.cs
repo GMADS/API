@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
 using ConcessionariaDominio.Entidades;
@@ -43,7 +45,7 @@ namespace ConcessionariaServicos
                     true, "Compra alterada com sucesso", _concessionariaRepositorio.AlterarCompra(compra));
         }
 
-        public async Task<RetornoGenerico> ListarCarro()
+        public RetornoGenerico ListarCarro()
         {
             var retorno = _concessionariaRepositorio.ListarCarro();
 
@@ -115,6 +117,29 @@ namespace ConcessionariaServicos
         {
             return new RetornoGenerico(
                 true, "Compra excluido com sucesso", _concessionariaRepositorio.RemoverCompra(id));
+        }
+
+        public IEnumerable<Carro> ExportarCSV()
+        {
+            var builder = new StringBuilder();
+
+            builder.AppendLine("IdCarro, Ano, Marca, Kilometragem, Cor, Cambio, Items, Carroceria");
+
+            var carros = _concessionariaRepositorio.ListarCarro();            
+
+            foreach (var user in carros)
+            {
+                builder.AppendLine($"{user.IdCarro}, {user.Ano}, {user.Marca}, {user.Kilometragem}, {user.Cor}, {user.Cambio}, {user.Items}, {user.Carroceria}");
+            }
+
+            return (IEnumerable<Carro>)File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "users.csv");
+
+            // return (IOrderedEnumerable<Carro>)retorno;
+        }
+
+        private object File(byte[] vs, string v1, string v2)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

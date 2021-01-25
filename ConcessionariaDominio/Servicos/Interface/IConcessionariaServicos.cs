@@ -9,7 +9,7 @@ namespace ConcessionariaDominio.Servicos.Interface
         Task<RetornoGenerico> AdicionarCarro (Carro carro);
         Task<RetornoGenerico> RemoverCarro (int id);
         Task<RetornoGenerico> ObterCarroPorId(int id);
-        Task<RetornoGenerico> ListarCarro();
+        RetornoGenerico ListarCarro();
         Task<RetornoGenerico> AdicionarCliente (Cliente cliente);
         Task<RetornoGenerico> AlterarCliente (Cliente cliente);
         Task<RetornoGenerico> RemoverCliente (int id);

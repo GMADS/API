@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
 using ConcessionariaDominio.Repositorio.Interfaces;
 using ConcessionariaDominio.Servicos.Interface;
@@ -35,12 +36,6 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
         public IActionResult ListarCarros([FromServices]IConcessionariaServicos _servicoConcessionaria)
         {                            
             var produtos = _servicoConcessionaria.ListarCarro();  
-
-            if(!produtos.Result.Sucesso)
-            {
-                return NoContent();
-            }         
-
             return Ok(produtos);            
         }
         [HttpPost("IncluirCarro")]
@@ -63,6 +58,22 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             _servicoConcessionaria.RemoverCarro(id);
 
             return Ok(); 
+        }
+        [HttpGet("ExportarArquivoCSV")]
+         public IActionResult Csv([FromServices]IConcessionariaRepositrio _repositorioConcessionaria)
+        {
+            var cabecalho = new StringBuilder();
+
+            cabecalho.AppendLine("IdCarro, Ano, Marca, Kilometragem, Cor, Cambio, Items, Carroceria");
+
+            var carros = _repositorioConcessionaria.ListarCarro();
+
+            foreach (var user in carros)
+            {
+                cabecalho.AppendLine($"{user.IdCarro}, {user.Ano}, {user.Marca}, {user.Kilometragem}, {user.Cor}, {user.Cambio}, {user.Items}, {user.Carroceria}");
+            }
+
+            return File(Encoding.UTF8.GetBytes(cabecalho.ToString()), "text/csv", "carros.csv");
         }
     }
 }
