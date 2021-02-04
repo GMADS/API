@@ -45,17 +45,18 @@ namespace ConcessionariaServicos
                     true, "Compra alterada com sucesso", _concessionariaRepositorio.AlterarCompra(compra));
         }
 
-        public RetornoGenerico ListarCarro()
+        public IEnumerable<Carro> ListarCarro()
         {
-            var retorno = _concessionariaRepositorio.ListarCarro();
+            // var retorno = _concessionariaRepositorio.ListarCarro();
 
-            if(!retorno.Any())
-            {
-                return new RetornoGenerico(false, "Não existe carros cadastrados na base de dados", null);
-            }
+            // if(!retorno.Any())
+            // {
+            //     return new RetornoGenerico(false, "Não existe carros cadastrados na base de dados", null);
+            // }
 
-            return new RetornoGenerico(true, "Carros obtidos com sucesso", retorno);
-        
+            // return new RetornoGenerico(true, "Carros obtidos com sucesso", retorno);
+
+            return _concessionariaRepositorio.ListarCarro();
         }
 
         public async Task<RetornoGenerico> ListarCliente()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using ConcessionariaAPI.ConcessionariaDominio.Entidades;
 using ConcessionariaDominio.Entidades;
@@ -9,7 +10,7 @@ namespace ConcessionariaDominio.Servicos.Interface
         Task<RetornoGenerico> AdicionarCarro (Carro carro);
         Task<RetornoGenerico> RemoverCarro (int id);
         Task<RetornoGenerico> ObterCarroPorId(int id);
-        RetornoGenerico ListarCarro();
+        IEnumerable<Carro> ListarCarro();
         Task<RetornoGenerico> AdicionarCliente (Cliente cliente);
         Task<RetornoGenerico> AlterarCliente (Cliente cliente);
         Task<RetornoGenerico> RemoverCliente (int id);
