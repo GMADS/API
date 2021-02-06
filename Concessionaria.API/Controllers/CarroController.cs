@@ -80,7 +80,9 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             //     cabecalho.AppendLine($"{user.IdCarro}, {user.Ano}, {user.Marca}, {user.Kilometragem}, {user.Cor}, {user.Cambio}, {user.Items}, {user.Carroceria}");
             // }
 
-            return File(new System.Text.UTF8Encoding().GetBytes(carros.ToString()), "text/csv", fileName);
+            var result = File(new System.Text.UTF8Encoding().GetBytes(carros), "text/csv", fileName);
+
+            return result;
 
             // return File(Encoding.UTF8.GetBytes(cabecalho.ToString()), "text/csv", "carros.csv");
         }
