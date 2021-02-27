@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using ConcessionariaAPI.ConcessionariaDominio.Entidades;
 using ConcessionariaDominio.Repositorio.Interfaces;
 using ConcessionariaDominio.Servicos.Interface;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 
 namespace ConcessionariaAPI.Concessionaria.API.Controllers
 {
@@ -60,31 +62,6 @@ namespace ConcessionariaAPI.Concessionaria.API.Controllers
             _servicoConcessionaria.RemoverCarro(id);
 
             return Ok(); 
-        }
-        [HttpGet("ExportarArquivoCSV")]
-         public IActionResult Csv([FromServices]IConcessionariaServicos _repositorioConcessionaria)
-        {
-            // var cabecalho = new StringBuilder();
-
-            // cabecalho.AppendLine("IdCarro, Ano, Marca, Kilometragem, Cor, Cambio, Items, Carroceria");
-
-            // cabecalho.AppendLine("IdCarro".Split(','), "Ano".Split(','), "Marca".Split(','), "Kilometragem".Split(','), "Cor".Split(','), "Cambio".Split(','), "Items".Split(','), "Carroceria".Split(','));
-
-            var carros = _repositorioConcessionaria.ListarCarro();
-
-
-            var fileName = $"ListaDeCarros" + DateTime.Now.ToString("dd-MM-yyyy") + ".csv";
-
-            // foreach (var user in carros)
-            // {
-            //     cabecalho.AppendLine($"{user.IdCarro}, {user.Ano}, {user.Marca}, {user.Kilometragem}, {user.Cor}, {user.Cambio}, {user.Items}, {user.Carroceria}");
-            // }
-
-            var result = File(new System.Text.UTF8Encoding().GetBytes(carros), "text/csv", fileName);
-
-            return result;
-
-            // return File(Encoding.UTF8.GetBytes(cabecalho.ToString()), "text/csv", "carros.csv");
         }
     }
 }
