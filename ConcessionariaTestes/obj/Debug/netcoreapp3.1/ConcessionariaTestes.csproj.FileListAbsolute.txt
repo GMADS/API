@@ -1,0 +1,5 @@
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaTestes\obj\Debug\netcoreapp3.1\ConcessionariaTestes.csprojAssemblyReference.cache
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaTestes\obj\Debug\netcoreapp3.1\ConcessionariaTestes.AssemblyInfoInputs.cache
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaTestes\obj\Debug\netcoreapp3.1\ConcessionariaTestes.AssemblyInfo.cs
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaTestes\obj\Debug\netcoreapp3.1\ConcessionariaTestes.csproj.CoreCompileInputs.cache
+C:\Users\guilh\OneDrive\Documentos\GitHub\API\ConcessionariaTestes\obj\Debug\netcoreapp3.1\ConcessionariaTestes.MvcApplicationPartsAssemblyInfo.cache
